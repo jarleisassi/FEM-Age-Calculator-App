@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="css.css">
+
+  <title>Frontend Mentor | Age calculator app</title>
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+
+<section>
+  <div id="calculator">
+    <div>
+      <form id="teste">
+        <div id="form-date">
+          <div id="input-day">
+            <label for="">DAY</label>
+            <input  type="text-field" name="day" placeholder="DD">
+          </div>
+          <div id="input-month">
+            <label for="">MONTH</label>
+            <input  type="text-field" name="month" placeholder="MM">
+          </div>
+          <div id="input-year">
+            <label for="">YEAR</label>
+            <input  type="text-field" name="year" placeholder="YYYY">
+          </div>
+        </div>
+        <div id="row-button-submit">
+          <hr>
+          <button id="btn-submit" type="submit"></button>
+        </div>
+      </form>
+  </div>
+  <div id="result">
+    <div>
+    <span id="result-year">--</span>years
+    </div>
+      <div>
+      <span id="result-month">--</span>months
+    </div>
+      <div>
+      <span id="result-day">--</span>days
+    </div>
+  </div>
+</section>
+<!-- 
+  Day
+  DD
+
+  Month
+  MM
+
+  Year
+  YYYY
+
+  -- years
+  -- months
+  -- days -->
+  
+<!--   <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Jarlei Sassi</a>.
+  </div> -->
+</body>
+</html>
+
+<script>
+
+$(document).ready(function() {
+    $('#btn-submit').click(function(event) {
+        event.preventDefault();
+
+
+    var isDayValid =  false;
+    var isMonthValid =  false;
+    var isYearValid =  false;
+
+    const date = new Date();
+
+    var day   =   parseInt($('#input-day input').val());
+    var month =   parseInt($('#input-month input').val());
+    var year  =   parseInt($('#input-year input').val());
+
+    var m30 =       [4,6,9,11];
+
+    if(!day){
+
+      if( $("#input-day  p")){
+        $("#input-day  p").remove();
+      }
+
+      $("#input-day input").addClass("input-alert-border");
+      $("#input-day input").after("<p>This field is required</p>");
+      $("#input-day label").addClass("alert-text");
+    }
+    else if(((m30.includes(month)) && day > 30) || (month == 2 && day > 28) || day > 31) {
+      if( $("#input-day  p")){
+        $("#input-day  p").remove();
+        $("#input-day input").after("<p>Must be a valid day</p>");
+      }
+    }else{
+      $("#input-day  p").remove();
+      $("#input-day input").removeClass("input-alert-border");
+      $("#input-day label").removeClass("alert-text");
+      isDayValid = true;
+    }
+
+
+    if(!month){
+
+      if( $("#input-month  p")){
+        $("#input-month  p").remove();
+      }
+
+      $("#input-month input").addClass("input-alert-border");
+      $("#input-month input").after("<p>This field is required</p>");
+      $("#input-month  label").addClass("alert-text");
+    }else if(month > 12){
+      if( $("#input-month  p")){
+        $("#input-month  p").remove();
+      }
+     $("#input-month input").after("<p>Must be a valid month</p>");
+    }
+    else{
+      $("#input-month  p").remove();
+      $("#input-month input").removeClass("input-alert-border");
+      $("#input-month label").removeClass("alert-text");
+      isMonthValid = true;
+    }
+
+
+    if(!year){
+
+      if( $("#input-year  p")){
+        $("#input-year  p").remove();
+      }
+
+      $("#input-year input").addClass("input-alert-border");
+      $("#input-year input").after("<p>This field is required</p>");
+      $("#input-year label").addClass("alert-text");
+    }
+    else if(year >= date.getFullYear() ){
+      if( $("#input-year  p")){
+        $("#input-year  p").remove();
+      }
+      $("#input-year input").after("<p>Must be in the past</p>");
+    }
+    else{
+      $("#input-year  p").remove();
+      $("#input-year input").removeClass("input-alert-border");
+      $("#input-year label").removeClass("alert-text");
+      isYearValid = true;
+    }
+
+    console.log(isDayValid+" "+isMonthValid+" "+isYearValid);
+
+    if(isDayValid && isMonthValid && isYearValid){
+      console.log("Formulario validado");
+      resultDay   =   Math.abs(date.getDate() - day);
+      resultMonth =   Math.abs(date.getMonth() - month);
+      resultYear  =   date.getFullYear() - year;
+
+      $("#result-year").html(resultYear);
+      $("#result-month").html(resultMonth);
+      $("#result-day").html(resultDay);
+
+      console.log(resultDay+"  "+ resultMonth+"  "+ resultYear);
+    }
+
+    });
+});
+
+</script>

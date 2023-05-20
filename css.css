@@ -1,0 +1,287 @@
+@font-face {
+  font-family:"Poppins-Regular";
+  src: url("assets/fonts/Poppins-Regular.ttf") format("truetype");
+}
+
+
+@font-face {
+  font-family:"Poppins-Italic";
+  src: url("assets/fonts/Poppins-Italic.ttf") format("truetype");
+}
+
+
+@font-face {
+  font-family:"Poppins-ExtraBold";
+  src: url("assets/fonts/Poppins-ExtraBold.ttf") format("truetype");
+}
+
+
+@font-face {
+  font-family:"Poppins-BoldItalic";
+  src: url("assets/fonts/Poppins-BoldItalic.ttf") format("truetype");
+}
+
+
+body,html{
+    background-color:#f0f0f0;
+    height:100%;
+    padding:0;
+    margin:0;
+    font-family: Poppins-Regular;
+    -webkit-background-size: auto;
+    -moz-background-size: auto;
+    -o-background-size: auto;
+    background-size: auto;
+}
+
+section{
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+#calculator{
+    margin-top:31px;
+    width:840px;
+    height:651px;
+    border-radius : 25px 25px 194px 25px;
+    box-sizing: border-box;
+    padding:55px;
+    background-color: #fff;
+}
+
+#result div{
+    max-height: 115px;
+}
+
+#form-date {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    column-gap:33px;
+}
+
+
+#form-date > div{
+    display:flex;
+    flex-direction: column;
+    font-weight: bold;
+    letter-spacing: 3px;
+    flex-basis: 50px;
+    color: #6b6b6b;
+}
+
+#form-date > div input {
+    width: 160px;
+    height: 73px;
+    border-radius: 8px;
+    margin-top: 7px;
+    border: 1px solid #dcdcdc;
+    font-family:Poppins-ExtraBold;
+    font-size:32px;
+    padding-left: 23px;
+    box-sizing:border-box;
+}
+
+
+
+
+#form-date > div  p{
+    color: #d56567;
+    font-size: 9px;
+    font-family:Poppins-Italic;
+    margin-top: 8px;
+    margin-bottom:0px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight:100;
+}
+
+
+
+element.style {
+
+}
+.input-alert-border{
+    border: 1px solid #d56567 !important;
+}
+
+.alert-text{
+ color:#d56567;
+}
+
+
+#form-date > div input:focus {
+    outline: 0;
+    border: 1px solid #7765a6;
+}
+
+
+#form-date > div input:hover {  
+    border: 1px solid #7765a6;
+}
+
+
+#row-button-submit{
+    flex-basis: 100%;
+}
+
+hr {
+    border: none;
+    background-color: #ececec;
+    height: 2px;
+    width: 100%;
+}
+
+#row-button-submit > button {
+    border-radius: 50%;
+    border-style: none;
+    background-image: url('design/arrowpurpple.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: none;
+    transform: rotate(180deg);
+    padding:0;
+    min-width:96px;
+    min-height:96px;
+}
+
+#row-button-submit >button:hover{
+    background-image: url('design/arrow.png');
+}
+
+#row-button-submit {
+    display: flex;
+    justify-items: flex-start;
+    align-items: center;
+    width:100%;
+}
+
+#result span{
+    font-size: 104px;
+    font-family:Poppins-BoldItalic;
+    color: #864cff;
+}
+
+#result {
+    font-size: 104px;
+    font-family: Poppins-BoldItalic;
+    color: #131313;
+}
+
+
+/* WebKit, Blink, Edge */
+input::-webkit-input-placeholder {
+    color: #8a8a8a;
+}
+
+/* Mozilla Firefox 4 to 18 */
+input:-moz-placeholder {
+    color: #8a8a8a;
+    opacity: 1; 
+}
+
+/* Mozilla Firefox 19+ */
+input::-moz-placeholder {
+    color: #8a8a8a;
+    opacity: 1; 
+}
+
+/* Internet Explorer 10-11 */
+input:-ms-input-placeholder {
+    color: #8a8a8a;
+}
+
+input::placeholder {
+    color: #8a8a8a;
+}
+
+@media only screen and (max-width: 700px) {
+
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calculator {
+    margin-top: 31px;
+    border-radius: 25px 25px 100px 25px;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 52px 24px 24px 24px;
+    height:483px;
+}
+
+
+#form-date{
+    justify-content:space-between;
+    column-gap:4%;
+}
+
+#form-date > div{
+    font-size: 12px;
+}
+
+#form-date >div input {
+    width: 87px;
+    margin-top: 3px;
+    height: 54px;
+    text-align: left;
+    padding: 0;
+    font-size: 22px;
+    /* color: black; */
+    padding-left: 16px;
+    font-size: 21px;
+}
+
+#row-button-submit {
+    position:relative;
+    margin-top: 56px;
+    margin-bottom: 46px;
+}
+
+#result > div {
+    height: 62px;
+    font-size: 56px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 14px;
+}
+
+#result{
+    font-size:50px;
+    display: flex;
+    flex-direction:column;
+}
+ 
+
+#result span{
+    font-size:50px;
+}
+
+hr{
+    background-color:black;
+}
+
+#row-button-submit > button {
+    width: 65px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto auto;
+    min-width: 55px;
+    min-height: 60px;
+}
+
+}
+
